@@ -7,7 +7,7 @@ import { Container, Row } from 'react-bootstrap';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import BootstrapNavbar from '../../components/BootstrapNavbar/BootstrapNavbar';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
+import NewBookingPage from '../NewBookingPage/NewBookingPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 
 export default function App() {
@@ -22,8 +22,8 @@ export default function App() {
           <>
             <Routes>
               {/* Route components in here */}
-              <Route path="/orders/new" element={<NewOrderPage />} />
-              <Route path="/orders" element={<OrderHistoryPage />} />
+              <Route path="/booking/new" element={<NewBookingPage />} />
+              <Route path="/booking" element={<OrderHistoryPage />} />
             </Routes>
           </>
         ) : (

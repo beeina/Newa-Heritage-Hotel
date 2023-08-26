@@ -13,7 +13,7 @@ function BootstrapNavbar({user, setUser}) {
 
   return (
     <Navbar expand="sm" className="bg-body-tertiary">
-      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar.Brand href="#home">Newa Heritage Hotel</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
@@ -22,13 +22,13 @@ function BootstrapNavbar({user, setUser}) {
               <Navbar.Text>
                 Welcome: {user.name}
               </Navbar.Text>
-              <Link className="nav-link" to="/orders">
-                Order History
+              <Link className="nav-link" to="/booking">
+                Bookings
               </Link>
-              <Link className="nav-link" to="/orders/new">
-                New Order
+              <Link className="nav-link" to="/booking/new">
+                New Booking
               </Link>
-              <Link className="nav-link" onClick={handleLogOut}>Log Out</Link>
+              <Link className="nav-link float-right" onClick={handleLogOut}>Log Out</Link>
             </>
           ) : (
             <Link className="nav-link" to="/orders">
