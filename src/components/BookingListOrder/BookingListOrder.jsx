@@ -1,22 +1,27 @@
-// import './BookingListOrder.css';
+import './BookingListOrder.css';
 
-export default function BookingListOrder({ booking, handleAddToBooking }) {
+export default function BookingListOrder({ booking, handleAddToBooking, activeBooking, setActiveBooking }) {
   return (
-    <div className="BookingListOrder">
-      <div className="fullName">{booking.fullName}</div>
-      <div className="address">{booking.address}</div>
-      <div className="phoneNumber">{booking.phoneNumber}</div>
-      <div className="email">{booking.email}</div>
-      <div className="capacity">{booking.capacity}</div>
-      <div className="roomNumber">{booking.roomNumber}</div>
-      <div className="name">{booking.name}</div>
-      <div className="bed">{booking.bed}</div>
-      <div className="fromDate">{booking.fromDate}</div>
-      <div className="toDate">{booking.toDate}</div>
-        <button className="btn-sm" onClick={() => handleAddToBooking(booking._id)}>
-          ADD
-        </button>
+    <div
+      className={`BookingListOrder ${booking === activeBooking ? 'selected' : ''}`}
+      onClick={() => setActiveBooking(booking)} >    
+      {/* <div>
+      
+        <div className="smaller">{new Date(booking.updatedAt).toLocaleDateString()}</div>
+      </div> */}
+    <div className="form-container">
+     
+      <label class="">Guest Full Name:&nbsp;&nbsp;<strong>{booking.guestFullName}</strong> </label>
+      <label class="">Address:&nbsp;&nbsp;<strong>{booking.address}</strong> </label>
+      <label class="">phoneNumber:&nbsp;&nbsp;<strong>{booking.phoneNumber}</strong> </label>
+      <label class="">email:&nbsp;&nbsp;<strong>{booking.email}</strong> </label>
+      <label class="">capacity:&nbsp;&nbsp;<strong>{booking.capacity}</strong> </label>
+      <label class="">roomNumber:&nbsp;&nbsp;<strong>{booking.roomNumber}</strong> </label>
+      <label class="">bed:&nbsp;&nbsp;<strong>{booking.bed}</strong> </label>
+      <label class="">fromDate:&nbsp;&nbsp;<strong>{booking.fromDate}</strong> </label>
+      <label class="">toDate:&nbsp;&nbsp;<strong>{booking.toDate}</strong> </label>
       </div>
+    </div>
   );
 }
 

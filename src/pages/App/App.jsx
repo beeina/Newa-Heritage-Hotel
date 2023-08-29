@@ -9,6 +9,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import BootstrapNavbar from '../../components/BootstrapNavbar/BootstrapNavbar';
 import NewBookingPage from '../NewBookingPage/NewBookingPage';
 import BookingHistoryPage from '../BookingHistoryPage/BookingHistoryPage';
+import AdminPage from '../Admin/AdminPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -24,6 +25,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/booking/new" element={<NewBookingPage />} />
               <Route path="/booking" element={<BookingHistoryPage user={user} setUser={setUser}/>} />
+              <Route path="/admin" element={<AdminPage user={user} setUser={setUser}/>} />
             </Routes>
           </>
         ) : (

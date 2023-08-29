@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import * as bookingAPI from '../../utilities/booking-api';
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import './NewBookingPage.css';
 
 
 export default function NewBookingPage() {
+  const navigate = useNavigate();
   const [state, setState] = useState({
     guestFullName: '',
     address: '',
@@ -21,13 +22,13 @@ export default function NewBookingPage() {
   function handleSubmit() {
    
     try {
-      console.log(state)
    
       // The promise returned by the signUp service
       // method will resolve to the user object included
       // in the payload of the JSON Web Token (JWT)
       bookingAPI.addBooking(state);
-      render();
+      navigate('/booking');
+   
     } catch {
       // An error occurred
       // Probably due to a duplicate email
@@ -38,12 +39,7 @@ export default function NewBookingPage() {
   function handleChange(evt) {
     
     setState({ ...state, [evt.target.name]: evt.target.value });
-    console.log(state)
     setError('');
-  }
-
-  function render() {
-    return <Link to='/booking' />
   }
 
     

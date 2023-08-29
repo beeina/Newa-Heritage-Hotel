@@ -6,12 +6,11 @@ module.exports = {
 };
 
 async function findBookings(req, res) {
-  const bookings = await Booking.find({ email: req._id });
+  const bookings = await Booking.find({ email: req.params.id });
   res.json(bookings);
+  console.log(bookings);
 }
 
 async function addBooking(req, res) {
-  console.log(req.body);
-
   const booking = await Booking.create(req.body);
 }

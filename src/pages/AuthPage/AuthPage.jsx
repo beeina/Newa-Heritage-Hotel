@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import './AuthPage.css';
 import { Button, Col } from 'react-bootstrap';
 
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
