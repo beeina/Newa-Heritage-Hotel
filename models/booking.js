@@ -1,7 +1,8 @@
-const mongoose = require('mangoose');
-const  Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const bookingSchema = new Schema({
+const bookingSchema = new Schema(
+  {
     guestFullName: { type: String, required: true },
     address: { type: String, required: true },
     phoneNumber: Number,
@@ -9,10 +10,12 @@ const bookingSchema = new Schema({
     capacity: Number,
     roomNumber: Number,
     bed: Number,
-    fromDate: { type : Date, default: Date.now },
-    toDate: { type : Date, default: Date.now }
-}, {
-    timestamps: true
-});
+    fromDate: { type: Date, default: Date.now },
+    toDate: { type: Date, default: Date.now },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-module.exports = mongoose.model('Booking', bookingSchema);
+module.exports = mongoose.model("Booking", bookingSchema);

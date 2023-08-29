@@ -8,7 +8,7 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import BootstrapNavbar from '../../components/BootstrapNavbar/BootstrapNavbar';
 import NewBookingPage from '../NewBookingPage/NewBookingPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import BookingHistoryPage from '../BookingHistoryPage/BookingHistoryPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -23,7 +23,7 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/booking/new" element={<NewBookingPage />} />
-              <Route path="/booking" element={<OrderHistoryPage />} />
+              <Route path="/booking" element={<BookingHistoryPage user={user} setUser={setUser}/>} />
             </Routes>
           </>
         ) : (
