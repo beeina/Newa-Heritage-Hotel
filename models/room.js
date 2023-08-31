@@ -1,4 +1,4 @@
-const mongoose = require("mangoose");
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const roomSchema = new Schema(
@@ -11,7 +11,7 @@ const roomSchema = new Schema(
     occupiedDays: [Number],
     month: Number,
     year: Number,
-    room: { type: Number, required: true },
+    room: { type: Number},
   },
   {
     timestamps: true,

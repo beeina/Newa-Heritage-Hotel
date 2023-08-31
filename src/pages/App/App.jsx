@@ -9,7 +9,9 @@ import AuthPage from '../AuthPage/AuthPage';
 import BootstrapNavbar from '../../components/BootstrapNavbar/BootstrapNavbar';
 import NewBookingPage from '../NewBookingPage/NewBookingPage';
 import BookingHistoryPage from '../BookingHistoryPage/BookingHistoryPage';
+import NewRoomForm from '../../components/NewRoomForm/NewRoomForm'
 import AdminPage from '../Admin/AdminPage';
+import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -26,6 +28,8 @@ export default function App() {
               <Route path="/booking/new" element={<NewBookingPage />} />
               <Route path="/booking" element={<BookingHistoryPage user={user} setUser={setUser}/>} />
               <Route path="/admin" element={<AdminPage user={user} setUser={setUser}/>} />
+              <Route path="/room/new" element={<NewRoomForm />} />
+              <Route path="/booking/confirmation" element={<ConfirmationPage />} />
             </Routes>
           </>
         ) : (

@@ -11,15 +11,15 @@ export default function BookingListOrder({ booking, handleAddToBooking, activeBo
       </div> */}
     <div className="form-container">
      
-      <label class="">Guest Full Name:&nbsp;&nbsp;<strong>{booking.guestFullName}</strong> </label>
-      <label class="">Address:&nbsp;&nbsp;<strong>{booking.address}</strong> </label>
-      <label class="">phoneNumber:&nbsp;&nbsp;<strong>{booking.phoneNumber}</strong> </label>
-      <label class="">email:&nbsp;&nbsp;<strong>{booking.email}</strong> </label>
-      <label class="">capacity:&nbsp;&nbsp;<strong>{booking.capacity}</strong> </label>
-      <label class="">roomNumber:&nbsp;&nbsp;<strong>{booking.roomNumber}</strong> </label>
-      <label class="">bed:&nbsp;&nbsp;<strong>{booking.bed}</strong> </label>
-      <label class="">fromDate:&nbsp;&nbsp;<strong>{booking.fromDate}</strong> </label>
-      <label class="">toDate:&nbsp;&nbsp;<strong>{booking.toDate}</strong> </label>
+      <label className="">Guest Full Name:&nbsp;&nbsp;<strong>{booking.guestFullName}</strong> </label>
+      <label className="">Address:&nbsp;&nbsp;<strong>{booking.address}</strong> </label>
+      <label className="">phoneNumber:&nbsp;&nbsp;<strong>{booking.phoneNumber}</strong> </label>
+      <label className="">email:&nbsp;&nbsp;<strong>{booking.email}</strong> </label>
+      <label className="">capacity:&nbsp;&nbsp;<strong>{booking.capacity}</strong> </label>
+      <label className="">roomNumber:&nbsp;&nbsp;<strong>{booking.roomNumber}</strong> </label>
+      <label className="">bed:&nbsp;&nbsp;<strong>{booking.bed}</strong> </label>
+      <label className="">fromDate:&nbsp;&nbsp;<strong>{booking.fromDate}</strong> </label>
+      <label className="">toDate:&nbsp;&nbsp;<strong>{booking.toDate}</strong> </label>
       </div>
     </div>
   );

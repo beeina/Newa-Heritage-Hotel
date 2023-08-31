@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import * as bookingAPI from '../../utilities/booking-api';
+import * as roomAPI from '../../utilities/room-api';
 import {useNavigate } from 'react-router-dom';
 import './NewBookingPage.css';
 
 
 export default function NewBookingPage() {
   const navigate = useNavigate();
+  let today = new Date().toISOString().split("T")[0];
+  let selectedToDate = '';
   const [state, setState] = useState({
     guestFullName: '',
     address: '',
@@ -26,8 +29,15 @@ export default function NewBookingPage() {
       // The promise returned by the signUp service
       // method will resolve to the user object included
       // in the payload of the JSON Web Token (JWT)
-      bookingAPI.addBooking(state);
-      navigate('/booking');
+      let rooms = roomAPI.getRoomsByBed(state.bed);
+      if (rooms.length > 0) {
+        const booking = bookingAPI.addBooking(state);
+        navigate('/booking/confirmation');
+      } else {
+        alert("there is no rooms available.");
+        navigate('/booking/new', {});
+      }
+    
    
     } catch {
       // An error occurred
@@ -36,8 +46,19 @@ export default function NewBookingPage() {
     }
   };
 
+  function getToDate() {
+    if (!selectedToDate && state.fromDate) {
+      const dateArr = state.fromDate.split('-');
+      selectedToDate = new Date(dateArr[0], parseInt(dateArr[1]) - 1, dateArr[2]);
+      selectedToDate.setDate(selectedToDate.getDate() + 1);
+      selectedToDate = selectedToDate.toISOString().split("T")[0];
+      
+    }
+    return selectedToDate;
+  }
+
   function handleChange(evt) {
-    
+  
     setState({ ...state, [evt.target.name]: evt.target.value });
     setError('');
   }
@@ -60,16 +81,15 @@ export default function NewBookingPage() {
         <label>Bed: </label> 
         <input type="number" name="bed" value={state.bed} onChange={handleChange}  required />
         <label>From Date: </label> 
-        <input type="date" name="fromDate" value={state.fromDate} onChange={handleChange}  required />
+        <input type="date" name="fromDate" min={today} value={state.fromDate} onChange={handleChange}  required />
         <label>To Date: </label> 
-        <input type="date" name="toDate" value={state.toDate} onChange={handleChange}  required />
+        <input type="date" name="toDate" min={getToDate()} value={state.toDate} onChange={handleChange}  required />
       
       <button type="submit">Submit</button>
      </form>
     </div>
     <p className="error-message">&nbsp;{error}</p>
     </div>
-      
   
   );
     

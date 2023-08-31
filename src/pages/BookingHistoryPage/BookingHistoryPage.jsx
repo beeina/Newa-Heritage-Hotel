@@ -10,18 +10,19 @@ export default function BookingHistoryPage({ user, setUser }) {
   const [activeBooking, setActiveBooking] = useState(null);
 
 
-  useEffect(function(user) {
+  useEffect(function() {
     async function getBookings() {
     
       const bookings = await bookingAPI.getBookings(user.email);
+      console.log(user)
       setActiveBooking(bookings[0] || null);
       setBookings(bookings);
     }
     getBookings();
-  }, []);
+  }, [user]);
 
   return (
-    <main className="OrderHistoryPage">
+    <main className="BookingHistoryPage">
       <aside>
         <Link to="/booking/new" className="button btn-sm">NEW BOOKING</Link>
         <UserLogOut user={user} setUser={setUser} />
