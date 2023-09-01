@@ -1,6 +1,6 @@
 import './BookingListOrder.css';
 
-export default function BookingListOrder({ booking, handleAddToBooking, activeBooking, setActiveBooking }) {
+export default function BookingListOrder({ booking, activeBooking, setActiveBooking }) {
   return (
     <div
       className={`BookingListOrder ${booking === activeBooking ? 'selected' : ''}`}
@@ -13,28 +13,15 @@ export default function BookingListOrder({ booking, handleAddToBooking, activeBo
      
       <label className="">Guest Full Name:&nbsp;&nbsp;<strong>{booking.guestFullName}</strong> </label>
       <label className="">Address:&nbsp;&nbsp;<strong>{booking.address}</strong> </label>
-      <label className="">phoneNumber:&nbsp;&nbsp;<strong>{booking.phoneNumber}</strong> </label>
-      <label className="">email:&nbsp;&nbsp;<strong>{booking.email}</strong> </label>
-      <label className="">capacity:&nbsp;&nbsp;<strong>{booking.capacity}</strong> </label>
-      <label className="">roomNumber:&nbsp;&nbsp;<strong>{booking.roomNumber}</strong> </label>
-      <label className="">bed:&nbsp;&nbsp;<strong>{booking.bed}</strong> </label>
-      <label className="">fromDate:&nbsp;&nbsp;<strong>{booking.fromDate}</strong> </label>
-      <label className="">toDate:&nbsp;&nbsp;<strong>{booking.toDate}</strong> </label>
+      <label className="">Phone Number:&nbsp;&nbsp;<strong>{booking.phoneNumber}</strong> </label>
+      <label className="">Email:&nbsp;&nbsp;<strong>{booking.email}</strong> </label>
+      <label className="">Capacity:&nbsp;&nbsp;<strong>{booking.capacity}</strong> </label>
+      <label className="">Room Number:&nbsp;&nbsp;<strong>{booking.roomNumber}</strong> </label>
+      <label className="">Bedroom:&nbsp;&nbsp;<strong>{booking.bed}</strong> </label>
+      <label className="">Check-in Date:&nbsp;&nbsp;<strong>{booking.fromDate}</strong> </label>
+      <label className="">Check-out Date:&nbsp;&nbsp;<strong>{booking.toDate}</strong> </label>
       </div>
     </div>
   );
 }
 
-
-
-
-
-// export default function BookingListOrder({ booking, activebooking, setActiveBooking }) {
-//     return (
-//       <div
-//         className={`bookingListOrder ${booking === activebooking ? 'selected' : ''}`}
-//         onClick={() => setActiveBooking(booking)}
-//       >
-//       </div>
-//   );
-// }

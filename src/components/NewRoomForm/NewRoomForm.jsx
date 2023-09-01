@@ -35,6 +35,7 @@ export default function NewRoomPage() {
 
   return (
     <div>
+      <h1>Add New Room</h1>
       <div className="form-container">
       <form autoComplete="off" onSubmit={handleSubmit}>
         <label>Name: </label>
@@ -47,7 +48,10 @@ export default function NewRoomPage() {
         <input name="roomNumber" value={state.roomNumber} onChange={handleChange} required/>
         <label>Bed: </label> 
         <input type="number" name="bed" value={state.bed} onChange={handleChange}  required />
-      <button type="submit">Submit</button>
+        <div>
+          
+        </div>
+        <button type="add">Add</button>
      </form>
     </div>
     <p className="error-message">&nbsp;{error}</p>

@@ -27,8 +27,15 @@ export default function AdminPage({ user, setUser }) {
 
   return (
     <main className="AuthPage">
+      <div className='p-10'>
+        
         {isAdmin ? <AllRooms rooms={rooms} setUser={setUser} /> : <NoAccessForm setUser={setUser} />}
-      {isAdmin ? <NewRoomForm setUser={setUser} /> : <span ></span>}
+      </div>
+      <div className='p-10'>
+     
+        {isAdmin ? <NewRoomForm setUser={setUser} /> : <span ></span>}
+      </div>
+   
     </main>
   );
 }

@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import * as bookingAPI from '../../utilities/booking-api';
 import * as roomAPI from '../../utilities/room-api';
-import {useNavigate } from 'react-router-dom';
+import {useNavigate, createSearchParams } from 'react-router-dom';
 import './NewBookingPage.css';
 
 
 export default function NewBookingPage() {
   const navigate = useNavigate();
   let today = new Date().toISOString().split("T")[0];
-  let selectedToDate = '';
   const [state, setState] = useState({
     guestFullName: '',
     address: '',
@@ -17,22 +16,29 @@ export default function NewBookingPage() {
     roomNumber: '',
     bed: '',
     fromDate: '',
-    toDate: ''
+    toDate: '',
+    selectedToDate: ''
   });
 
   const [error, setError] = useState('');
 
-  function handleSubmit() {
-   
+  async function handleSubmit(evt) {
+    evt.preventDefault();
     try {
    
       // The promise returned by the signUp service
       // method will resolve to the user object included
       // in the payload of the JSON Web Token (JWT)
-      let rooms = roomAPI.getRoomsByBed(state.bed);
+      const rooms = await roomAPI.getRoomsByBed(state.bed)
       if (rooms.length > 0) {
-        const booking = bookingAPI.addBooking(state);
-        navigate('/booking/confirmation');
+        const booking = await bookingAPI.addBooking(state);
+        // navigate('/booking/confirmation',{state:{id:booking._id}});
+        navigate({
+          pathname: '/booking/confirmation',
+          search: createSearchParams({
+            id: booking._id
+          }).toString()
+        });
       } else {
         alert("there is no rooms available.");
         navigate('/booking/new', {});
@@ -47,14 +53,14 @@ export default function NewBookingPage() {
   };
 
   function getToDate() {
-    if (!selectedToDate && state.fromDate) {
+    if (!state.selectedToDate && state.fromDate) {
       const dateArr = state.fromDate.split('-');
-      selectedToDate = new Date(dateArr[0], parseInt(dateArr[1]) - 1, dateArr[2]);
-      selectedToDate.setDate(selectedToDate.getDate() + 1);
-      selectedToDate = selectedToDate.toISOString().split("T")[0];
+      state.selectedToDate = new Date(dateArr[0], parseInt(dateArr[1]) - 1, dateArr[2]);
+      state.selectedToDate.setDate(state.selectedToDate.getDate() + 1);
+      state.selectedToDate = state.selectedToDate.toISOString().split("T")[0];
       
     }
-    return selectedToDate;
+    return state.selectedToDate;
   }
 
   function handleChange(evt) {
@@ -85,7 +91,7 @@ export default function NewBookingPage() {
         <label>To Date: </label> 
         <input type="date" name="toDate" min={getToDate()} value={state.toDate} onChange={handleChange}  required />
       
-      <button type="submit">Submit</button>
+        <button type="submit">Submit</button>
      </form>
     </div>
     <p className="error-message">&nbsp;{error}</p>

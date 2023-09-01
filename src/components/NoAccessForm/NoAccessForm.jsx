@@ -3,6 +3,6 @@ export default function NoAccessPage({ user, setUser }) {
 
 
     return (
-      <div>No Access page</div>
+      <div>You do not have permission to view this page.</div>
     );
   }

@@ -11,30 +11,9 @@ export default function BookingList({ bookings, activeBooking, setActiveBooking 
   />);
 
   return (
-    <main className={`BookingList ${bookings.length ? '' : 'no-booking'}`}>
+    <main>
       {BookingList}
     </main>
   );
 } 
 
-  //   return (
-  //     <main className="BookingList">
-  //       {booking}
-  //     </main>
-  //   );
-  // }
-
-// export default function BookingList({ booking, activeBooking, setActiveBooking }) {
-
-
-
-
-
- // const booking = booking.map(booking =>
-    //   <BookingListOrder
-    //     booking={booking}
-    //     key={booking._id}
-    //     bookingOrder={booking}
-    //     handleAddToBooking={handleAddToBooking}
-    //   />
-    // );

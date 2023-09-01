@@ -19,3 +19,7 @@ export async function addBooking(bookingData) {
 export async function getBookings(email) {
   return sendRequest(`${BASE_URL}/email/${email}`, "POST");
 }
+
+export async function getAllBookings() {
+  return sendRequest(`${BASE_URL}/all`, "GET");
+}

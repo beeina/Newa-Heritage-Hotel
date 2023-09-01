@@ -8,10 +8,6 @@ const roomSchema = new Schema(
     capacity: Number,
     roomNumber: Number,
     bed: Number,
-    occupiedDays: [Number],
-    month: Number,
-    year: Number,
-    room: { type: Number},
   },
   {
     timestamps: true,

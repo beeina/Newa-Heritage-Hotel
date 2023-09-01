@@ -3,6 +3,7 @@ const Booking = require("../../models/booking");
 module.exports = {
   addBooking,
   findBookings,
+  findAllBookings,
 };
 
 async function findBookings(req, res) {
@@ -13,4 +14,11 @@ async function findBookings(req, res) {
 
 async function addBooking(req, res) {
   const booking = await Booking.create(req.body);
+  res.json(booking);
+}
+
+async function findAllBookings(req, res) {
+  const bookings = await Booking.find({});
+  res.json(bookings);
+  console.log(bookings);
 }
