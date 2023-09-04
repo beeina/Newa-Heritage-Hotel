@@ -3,9 +3,8 @@ import * as bookingAPI from '../../utilities/booking-api';
 import BookingList from '../../components/BookingList/BookingList';
 import { Col } from 'react-bootstrap';
 
-export default function BookingHistoryPage({ user, setUser }) {
+export default function BookingHistoryPage({ user }) {
   const [bookings, setBookings] = useState([]);
-  const [activeBooking, setActiveBooking] = useState(null);
 
   const adminEmails = ['beeina@hotmail.com', 'bina02@gmail.com'];
   let isAdmin = false;
@@ -24,9 +23,7 @@ export default function BookingHistoryPage({ user, setUser }) {
       } else {
         bookings = await bookingAPI.getBookings(user.email);
       }
-      
-      console.log(user)
-      setActiveBooking(bookings[0] || null);
+     
       setBookings(bookings);
     }
     getBookings();
@@ -36,8 +33,6 @@ export default function BookingHistoryPage({ user, setUser }) {
     <main>
        {bookings.length ? <BookingList
         bookings={bookings}
-        activebooking={activeBooking}
-        setActiveBooking={setActiveBooking}
       /> :  <div className="form-container">
       <Col md={{span: 8, offset: 2}}>
           <span>You do not have any bookings.</span>

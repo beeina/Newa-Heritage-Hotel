@@ -1,27 +1,79 @@
 import './BookingListOrder.css';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import * as bookingAPI from '../../utilities/booking-api';
+import {useNavigate } from 'react-router-dom';
 
-export default function BookingListOrder({ booking, activeBooking, setActiveBooking }) {
-  return (
-    <div
-      className={`BookingListOrder ${booking === activeBooking ? 'selected' : ''}`}
-      onClick={() => setActiveBooking(booking)} >    
-      {/* <div>
+export default function BookingListOrder({ booking }) {
+  booking.toDate = new Date(booking.toDate).toLocaleDateString('en-US');
+  booking.fromDate = new Date(booking.fromDate).toLocaleDateString('en-US');
+
+  const navigate = useNavigate();
+
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    try {
+   
+  
+      const cancelBooking = await bookingAPI.cancelBookingById(booking._id);
+      if (cancelBooking) {
       
-        <div className="smaller">{new Date(booking.updatedAt).toLocaleDateString()}</div>
-      </div> */}
-    <div className="form-container">
-     
-      <label className="">Guest Full Name:&nbsp;&nbsp;<strong>{booking.guestFullName}</strong> </label>
-      <label className="">Address:&nbsp;&nbsp;<strong>{booking.address}</strong> </label>
-      <label className="">Phone Number:&nbsp;&nbsp;<strong>{booking.phoneNumber}</strong> </label>
-      <label className="">Email:&nbsp;&nbsp;<strong>{booking.email}</strong> </label>
-      <label className="">Capacity:&nbsp;&nbsp;<strong>{booking.capacity}</strong> </label>
-      <label className="">Room Number:&nbsp;&nbsp;<strong>{booking.roomNumber}</strong> </label>
-      <label className="">Bedroom:&nbsp;&nbsp;<strong>{booking.bed}</strong> </label>
-      <label className="">Check-in Date:&nbsp;&nbsp;<strong>{booking.fromDate}</strong> </label>
-      <label className="">Check-out Date:&nbsp;&nbsp;<strong>{booking.toDate}</strong> </label>
-      </div>
-    </div>
+        navigate('/');
+      } else {
+        alert("there is no rooms available.");
+        navigate('/booking/new', {});
+      }
+    }
+    catch {
+      // An error occurred
+      // Probably due to a duplicate email
+      this.setState({ error: 'Sign Up Failed - Try Again' });
+    }
+  }
+  
+  return (
+    <Container className='container-margin'>
+    <Row >
+        <Col xs={12} md={5} className="home-container">
+          <Row>
+            <Col xs={12} md={6}>Guest Full Name:</Col>
+            <Col xs={12} md={6}><strong>{booking.guestFullName}</strong></Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={6}>Address:</Col>
+            <Col xs={12} md={6}><strong>{booking.address}</strong></Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={6}>Phone Number:</Col>
+            <Col xs={12} md={6}><strong>{booking.phoneNumber}</strong></Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={6}>Email:</Col>
+            <Col xs={12} md={6}><strong>{booking.email}</strong></Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={6}>Number of Guests:</Col>
+            <Col xs={12} md={6}><strong>{booking.capacity}</strong></Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={6}>Bedroom:</Col>
+            <Col xs={12} md={6}><strong>{booking.bed}</strong></Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={6}>Check-in Date:</Col>
+            <Col xs={12} md={6}><strong>{booking.fromDate}</strong></Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={6}>Check-out Date:</Col>
+            <Col xs={12} md={6}><strong>{booking.toDate}</strong></Col>
+          </Row>
+          <Row>
+            <a href="/" onClick={handleSubmit} >Cancel</a>
+          </Row>
+        </Col>
+     </Row>
+     </Container>
   );
 }
 

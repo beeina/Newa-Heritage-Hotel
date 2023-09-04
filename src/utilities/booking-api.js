@@ -23,3 +23,7 @@ export async function getBookings(email) {
 export async function getAllBookings() {
   return sendRequest(`${BASE_URL}/all`, "GET");
 }
+
+export async function cancelBookingById(id) {
+  return sendRequest(`${BASE_URL}/cancel/id/${id}`, "POST");
+}

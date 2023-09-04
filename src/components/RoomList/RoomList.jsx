@@ -8,7 +8,7 @@ export default function RoomList({ rooms, activeRoom, setActiveRoom }) {
   />);
 
   return (
-    <main className={`RoomList ${rooms.length ? '' : 'no-room'}`}>
+    <main>
       {RoomList}
     </main>
   );

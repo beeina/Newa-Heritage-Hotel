@@ -3,7 +3,7 @@ import * as roomAPI from '../../utilities/room-api';
 import RoomList from '../../components/RoomList/RoomList';
 
 
-export default function AllRooms({ user, setUser }) {
+export default function AllRooms() {
   const [rooms, setRooms] = useState([]);
 
   useEffect(function() {

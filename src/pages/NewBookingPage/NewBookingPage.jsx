@@ -3,9 +3,13 @@ import * as bookingAPI from '../../utilities/booking-api';
 import * as roomAPI from '../../utilities/room-api';
 import {useNavigate, createSearchParams } from 'react-router-dom';
 import './NewBookingPage.css';
-
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 
 export default function NewBookingPage() {
+  const [validated, setValidated] = useState(false);
   const navigate = useNavigate();
   let today = new Date().toISOString().split("T")[0];
   const [state, setState] = useState({
@@ -23,6 +27,14 @@ export default function NewBookingPage() {
   const [error, setError] = useState('');
 
   async function handleSubmit(evt) {
+    const form = evt.currentTarget;
+    if (form.checkValidity() === false) {
+      evt.preventDefault();
+      evt.stopPropagation();
+    }
+
+    setValidated(true);
+
     evt.preventDefault();
     try {
    
@@ -71,29 +83,89 @@ export default function NewBookingPage() {
 
     
     return (
-      <div>
       <div className="form-container">
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <label>Guest Full Name: </label>
-        <input type="text" name="guestFullName" value={state.guestFullName} onChange={handleChange} required />
-        <label>Address: </label>  
-        <input type="text" name="address" value={state.address} onChange={handleChange} required/>
-        <label>Phone Number: </label> 
-        <input name="phoneNumber" value={state.phoneNumber} onChange={handleChange} required/>
-        <label>Email: </label> 
-        <input type="email" name="email" value={state.email} onChange={handleChange} required/>
-        <label>Capacity: </label> 
-        <input type="number" name="capacity" value={state.capacity} onChange={handleChange}  required/>
-        <label>Bed: </label> 
-        <input type="number" name="bed" value={state.bed} onChange={handleChange}  required />
-        <label>From Date: </label> 
-        <input type="date" name="fromDate" min={today} value={state.fromDate} onChange={handleChange}  required />
-        <label>To Date: </label> 
-        <input type="date" name="toDate" min={getToDate()} value={state.toDate} onChange={handleChange}  required />
-      
-        <button type="submit">Submit</button>
-     </form>
-    </div>
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+
+        <Form.Group as={Row} className="mb-3" controlId="guestFullName">
+          <Form.Label column sm={2}>Full Name</Form.Label>
+          <Col sm={10}>
+          <Form.Control required name="guestFullName" onChange={handleChange} type="text" placeholder="Enter Your Full Name" />
+          <Form.Control.Feedback type="invalid">
+            Please provide your full name.
+          </Form.Control.Feedback>
+          </Col>
+        </Form.Group>
+       
+        <Form.Group as={Row} className="mb-3" controlId="address">
+          <Form.Label column sm={2}>Address</Form.Label>
+          <Col sm={10}>
+          <Form.Control required name="address" onChange={handleChange} type="text" placeholder="Enter Your Address" />
+          <Form.Control.Feedback type="invalid">
+            Please provide your address.
+          </Form.Control.Feedback>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3" controlId="phoneNumber">
+          <Form.Label column sm={2}>Phone Number</Form.Label>
+          <Col sm={8}>
+          <Form.Control required name="phoneNumber" onChange={handleChange} type="text" placeholder="Enter Your Phone Number" />
+          <Form.Control.Feedback type="invalid">
+            Please provide your phone number.
+          </Form.Control.Feedback>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3" controlId="email">
+          <Form.Label column sm={2}>Email</Form.Label>
+          <Col sm={8}>
+          <Form.Control required name="email" onChange={handleChange} type="email" placeholder="Enter Your Email ID" />
+          <Form.Control.Feedback type="invalid">
+            Please provide your email ID.
+          </Form.Control.Feedback>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3" controlId="capacity">
+          <Form.Label column sm={2}>Number of Guests</Form.Label>
+          <Col sm={10}>
+          <Form.Control required name="capacity" onChange={handleChange} type="number" placeholder="Enter Number of Guests" />
+          <Form.Control.Feedback type="invalid">
+            Please provide number of guests staying with you (including you).
+          </Form.Control.Feedback>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3" controlId="bed">
+          <Form.Label column sm={2}>Bedrooms</Form.Label>
+          <Col sm={10}>
+          <Form.Control required name="bed" onChange={handleChange} type="number" placeholder="Enter Bedrooms" />
+          <Form.Control.Feedback type="invalid">
+            Please provide the size of bedrooms.
+          </Form.Control.Feedback>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3" controlId="fromDate">
+          <Form.Label column sm={2}>Check-in Date</Form.Label>
+          <Col sm={10}>
+          <Form.Control required name="fromDate" onChange={handleChange} min={today} type="date" placeholder="Enter Check-in Date" />
+          <Form.Control.Feedback type="invalid">
+            Please provide check-in date.
+          </Form.Control.Feedback>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3" controlId="toDate">
+          <Form.Label column sm={2}>Check-out Date</Form.Label>
+          <Col sm={10}>
+          <Form.Control required name="toDate" onChange={handleChange} min={getToDate()} type="date" placeholder="Enter Check-out Date" />
+          <Form.Control.Feedback type="invalid">
+            Please provide check-out date.
+          </Form.Control.Feedback>
+          </Col>
+        </Form.Group>
+    
+       <Form.Group as={Row} className="mb-3">
+        <Col sm={{ span: 8, offset: 2 }}>
+          <Button type="submit">Submit</Button>
+        </Col>
+      </Form.Group>
+     </Form>
     <p className="error-message">&nbsp;{error}</p>
     </div>
   

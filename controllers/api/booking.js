@@ -4,6 +4,7 @@ module.exports = {
   addBooking,
   findBookings,
   findAllBookings,
+  cancelBooking,
 };
 
 async function findBookings(req, res) {
@@ -21,4 +22,9 @@ async function findAllBookings(req, res) {
   const bookings = await Booking.find({});
   res.json(bookings);
   console.log(bookings);
+}
+
+async function cancelBooking(req, res) {
+  const booking = await Booking.remove({ _id: req.params.id });
+  res.json(booking);
 }

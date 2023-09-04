@@ -19,7 +19,7 @@ export default function NewRoomPage() {
    
     try {
       roomAPI.addRoom(state);
-      navigate('/booking');
+      navigate('/admin');
    
     } catch {
       this.setState({ error: 'Sign Up Failed - Try Again' });
