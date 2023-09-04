@@ -1,9 +1,9 @@
 import './BookingList.css';
-import BookingListOrder from '../BookingListOrder/BookingListOrder';
+import BookingListCard from '../BookingListCard/BookingListCard';
 
 
 export default function BookingList({ bookings}) {
-    const BookingList = bookings.map(booking => <BookingListOrder
+    const BookingList = bookings.map(booking => <BookingListCard
     booking={booking}
     key={booking._id}
   />);

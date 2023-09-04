@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 
 export default function AdminPage({ user, setUser }) {
 
-    const adminEmails = ['beeina@hotmail.com', 'bina02@gmail.com', 'dilforuip@gmail.com'];
+    const adminEmails = ['bina02@gmail.com'];
     let isAdmin = false;
     if (adminEmails.indexOf(user.email) >= 0) {
         isAdmin = true;
@@ -31,12 +31,11 @@ export default function AdminPage({ user, setUser }) {
   return (
     <Container className='container-margin'>
       <Row >
-        <Col xs={6} md={6}>
+        <Col xs={isAdmin? 6:12} md={isAdmin? 6:12}>
         {isAdmin ? <AllRooms rooms={rooms} setUser={setUser} /> : <NoAccessForm setUser={setUser} />}
-          </Col>
-        <Col xs={6} md={6}>
-            {isAdmin ? <NewRoomForm setUser={setUser} /> : <span ></span>}
+        
         </Col>
+            {isAdmin ?<Col xs={6} md={6}> <NewRoomForm setUser={setUser} /> </Col>: <span ></span>}
       </Row>    
     </Container>
   );

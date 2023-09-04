@@ -189,9 +189,22 @@ button[type="add"] {
   border: 0.1vmin solid var(--tan-3);
   border-radius: 1vmin;
 }
-.p-text-color {
+.white-text-color {
   color: white;
 }
 .container-margin {
   margin-top: 10px;
+}
+
+#root {
+  min-height: 98vh;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  text-align: center;
+  margin-top: auto;
+}
+.align-center {
+  text-align: center;
 }

@@ -1,14 +1,15 @@
 import { useState } from "react";
 import * as usersService from "../../utilities/users-service";
-
+import {useNavigate } from 'react-router-dom';
 import { Button, Form } from "react-bootstrap";
 
 export default function LoginForm({ setUser }) {
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
+  const [setError] = useState("");
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -24,6 +25,9 @@ export default function LoginForm({ setUser }) {
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
+      if (user) {
+        navigate('/booking');
+      }
     } catch {
       setError("Log In Failed - Try Again");
     }
@@ -31,7 +35,8 @@ export default function LoginForm({ setUser }) {
 
   return (
     <>
-      <Form autoComplete="off" onSubmit={handleSubmit}>
+    
+      <Form className="form-container mt-3" autoComplete="off" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control

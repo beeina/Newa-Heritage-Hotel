@@ -33,7 +33,7 @@ export default function BookingHistoryPage({ user }) {
     <main>
        {bookings.length ? <BookingList
         bookings={bookings}
-      /> :  <div className="form-container">
+      /> :  <div className='white-text-color align-center'>
       <Col md={{span: 8, offset: 2}}>
           <span>You do not have any bookings.</span>
       

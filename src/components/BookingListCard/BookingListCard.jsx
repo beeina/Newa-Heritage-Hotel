@@ -1,11 +1,11 @@
-import './BookingListOrder.css';
+import './BookingListCard.css';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import * as bookingAPI from '../../utilities/booking-api';
 import {useNavigate } from 'react-router-dom';
 
-export default function BookingListOrder({ booking }) {
+export default function BookingListCard({ booking }) {
   booking.toDate = new Date(booking.toDate).toLocaleDateString('en-US');
   booking.fromDate = new Date(booking.fromDate).toLocaleDateString('en-US');
 
@@ -35,7 +35,8 @@ export default function BookingListOrder({ booking }) {
   return (
     <Container className='container-margin'>
     <Row >
-        <Col xs={12} md={5} className="home-container">
+      <Col xs={6} md={3}>&nbsp;</Col>
+      <Col xs={6} md={6} className="home-container">
           <Row>
             <Col xs={12} md={6}>Guest Full Name:</Col>
             <Col xs={12} md={6}><strong>{booking.guestFullName}</strong></Col>
@@ -71,7 +72,7 @@ export default function BookingListOrder({ booking }) {
           <Row>
             <a href="/" onClick={handleSubmit} >Cancel</a>
           </Row>
-        </Col>
+      </Col>
      </Row>
      </Container>
   );

@@ -17,8 +17,8 @@ export default function AllRooms() {
   }, []);
 
   return (
-    <main className="">
-      <h1>All Rooms</h1>
+    <main>
+      <h1 className="white-text-color">All Rooms</h1>
       <RoomList rooms={rooms}/>
     </main>
   );

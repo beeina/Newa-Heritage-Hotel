@@ -3,12 +3,15 @@ import * as userService from "../../utilities/users-service";
 import Container from 'react-bootstrap/Container';
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import {useNavigate } from 'react-router-dom';
 
 function BootstrapNavbar({user, setUser}) {
-
+  const navigate = useNavigate();
     function handleLogOut() {
         userService.logOut();
+        navigate('/');
         setUser(null);
+        
     }
 
   return (
@@ -33,9 +36,15 @@ function BootstrapNavbar({user, setUser}) {
                 <Link className="nav-link float-right" onClick={handleLogOut}>Log Out</Link>
               </>
             ) : (
-              <Link className="nav-link" to="/orders">
+              <>
+              <Link className="nav-link" to="/booking/new">
+              New Booking
+            </Link>
+              <Link className="nav-link" to="/signin">
                 Sign In
               </Link>
+             
+              </>
             )}
           </Nav>
         </Navbar.Collapse>

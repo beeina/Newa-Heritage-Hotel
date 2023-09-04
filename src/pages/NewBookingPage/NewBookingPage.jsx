@@ -105,6 +105,7 @@ export default function NewBookingPage() {
           </Form.Control.Feedback>
           </Col>
         </Form.Group>
+
         <Form.Group as={Row} className="mb-3" controlId="phoneNumber">
           <Form.Label column sm={2}>Phone Number</Form.Label>
           <Col sm={8}>
@@ -114,6 +115,7 @@ export default function NewBookingPage() {
           </Form.Control.Feedback>
           </Col>
         </Form.Group>
+
         <Form.Group as={Row} className="mb-3" controlId="email">
           <Form.Label column sm={2}>Email</Form.Label>
           <Col sm={8}>
@@ -123,6 +125,7 @@ export default function NewBookingPage() {
           </Form.Control.Feedback>
           </Col>
         </Form.Group>
+
         <Form.Group as={Row} className="mb-3" controlId="capacity">
           <Form.Label column sm={2}>Number of Guests</Form.Label>
           <Col sm={10}>
@@ -132,6 +135,7 @@ export default function NewBookingPage() {
           </Form.Control.Feedback>
           </Col>
         </Form.Group>
+
         <Form.Group as={Row} className="mb-3" controlId="bed">
           <Form.Label column sm={2}>Bedrooms</Form.Label>
           <Col sm={10}>
@@ -141,6 +145,7 @@ export default function NewBookingPage() {
           </Form.Control.Feedback>
           </Col>
         </Form.Group>
+
         <Form.Group as={Row} className="mb-3" controlId="fromDate">
           <Form.Label column sm={2}>Check-in Date</Form.Label>
           <Col sm={10}>
@@ -150,6 +155,7 @@ export default function NewBookingPage() {
           </Form.Control.Feedback>
           </Col>
         </Form.Group>
+        
         <Form.Group as={Row} className="mb-3" controlId="toDate">
           <Form.Label column sm={2}>Check-out Date</Form.Label>
           <Col sm={10}>

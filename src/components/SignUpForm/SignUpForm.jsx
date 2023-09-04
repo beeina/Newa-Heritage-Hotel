@@ -4,6 +4,7 @@ import { signUp } from "../../utilities/users-service";
 import { Button, Form } from "react-bootstrap";
 
 export default class SignUpForm extends Component {
+  
   state = {
     name: "",
     email: "",
@@ -29,6 +30,9 @@ export default class SignUpForm extends Component {
       // in the payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
       this.props.setUser(user);
+      if(user) {
+        this.props.navigate('/booking/new');
+      }
     } catch {
       // An error occurred
       // Probably due to a duplicate email
@@ -37,9 +41,8 @@ export default class SignUpForm extends Component {
   };
 
   render() {
-    const disable = this.state.password !== this.state.confirm;
     return (
-        <Form autoComplete="off" onSubmit={this.handleSubmit}>
+        <Form className="form-container mt-3" autoComplete="off" onSubmit={this.handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Name</Form.Label>
             <Form.Control

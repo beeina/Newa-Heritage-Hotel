@@ -1,4 +1,4 @@
-.BookingListOrder {
+.BookingListCard {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -12,55 +12,55 @@
   font-size: 4vmin;
 }
 
-.BookingListOrder .fullName {
+.BookingListCard .fullName {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);
 }
 
-.BookingListOrder .address {
+.BookingListCard .address {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);
 }
 
-.BookingListOrder .phoneNumber {
+.BookingListCard .phoneNumber {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);
 }
 
-.BookingListOrder .email {
+.BookingListCard .email {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);
 }
 
-.BookingListOrder .capacity {
+.BookingListCard .capacity {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);
 }
 
-.BookingListOrder .roomNumber {
+.BookingListCard .roomNumber {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);
 }
 
-.BookingListOrder .bed {
+.BookingListCard .bed {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);
 }
 
-.BookingListOrder .fromDate {
+.BookingListCard .fromDate {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);
 }
 
-.BookingListOrder .toDate {
+.BookingListCard .toDate {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);

@@ -1,18 +1,43 @@
-# MERN-Stack Infrastructure
+# Newa-Heritage-Hotel Booking Website
 
-Clone this repo to provide the starter code for a comprehensive MERN-Stack project including token-based authentication.
+A hotel booking website allows people to book a room through this single hotel booking website. This project is built using MERN stack technology. The project features a dynamic home page with the introduction, admin and user dashboards, user login page with all kinds of validations, and the ability for people to view their booking information.
 
+## Screenshots
 
-## .env set-up
+## ERD
 
-create a .env file with these fileds
-...
-DATABASE_URL=<your mongoDB Atlas connection string>
-SECRECT=<a string with no spaces to verify your JWT tokens>
-...
+<img src="BookingERD.png"/>
 
-## Starting Up the Project
-- install all needed packages with `npm install`
-- open up two terminal tabs
-    - run expess on your backend tab with `nodemon server`
-    - run the react front-end with the commnd `npmstart` on the other tab
+## Wireframes
+
+<img src="BookingWireframe.png"/>
+
+## Landing Page
+
+<img src="LandingPage.png"/>
+
+## Technologies Used:
+
+- MongoDB
+
+- Express
+
+- React.js
+
+- Node.js
+
+- React Bootstrap
+
+## Getting Started: How the website work
+
+[Heroku]()
+
+[Trello Board](https://trello.com/b/rHt8GhjO/project-4)
+
+## Next Steps:
+
+- After booking complete send booking confirmation
+
+- If rooms are available then display on Calendar
+
+- Add a link in an email to cancel booking

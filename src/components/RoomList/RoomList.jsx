@@ -1,8 +1,8 @@
-import RoomListOrder from '../../components/RoomListOrder/RoomListOrder';
+import RoomListCard from '../RoomListCard/RoomListCard';
 
 
-export default function RoomList({ rooms, activeRoom, setActiveRoom }) {
-    const RoomList = rooms.map(room => <RoomListOrder
+export default function RoomList({ rooms }) {
+    const RoomList = rooms.map(room => <RoomListCard
     room={room}
     key={room._id}
   />);
