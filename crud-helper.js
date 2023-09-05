@@ -6,4 +6,4 @@ require("./config/database");
 const User = require("./models/user");
 const Booking = require("./models/booking");
 const Room = require("./models/room");
-// const Order = require('./models/order');
+

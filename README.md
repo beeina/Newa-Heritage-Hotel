@@ -30,7 +30,7 @@ A hotel booking website allows people to book a room through this single hotel b
 
 ## Getting Started: How the website work
 
-[Heroku]()
+[Heroku](https://newa-heritage-hotel-d114b7e33ccf.herokuapp.com/)
 
 [Trello Board](https://trello.com/b/rHt8GhjO/project-4)
 
