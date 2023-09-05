@@ -4,14 +4,6 @@ A hotel booking website allows people to book a room through this single hotel b
 
 ## Screenshots
 
-## ERD
-
-<img src="BookingERD.png"/>
-
-## Wireframes
-
-<img src="BookingWireframe.png"/>
-
 ## Landing Page
 
 <img src="LandingPage.png"/>
