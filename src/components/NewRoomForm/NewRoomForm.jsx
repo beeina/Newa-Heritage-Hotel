@@ -47,11 +47,11 @@ export default function NewRoomPage() {
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
       <Form.Group as={Row} className="mb-3" controlId="name">
-        <Form.Label column sm={3}>Full Name</Form.Label>
+        <Form.Label column sm={3}>Name</Form.Label>
         <Col sm={9}>
-        <Form.Control required name="name" onChange={handleChange} type="text" placeholder="Enter Your Full Name" />
+        <Form.Control required name="name" onChange={handleChange} type="text" placeholder="Enter Room Name" />
           <Form.Control.Feedback type="invalid">
-            Please provide your full name.
+            Please provide room name.
           </Form.Control.Feedback>
           </Col>
         </Form.Group>
@@ -92,6 +92,16 @@ export default function NewRoomPage() {
           <Form.Control required name="bed" onChange={handleChange} type="number" placeholder="Enter Number of Bedrooms" />
           <Form.Control.Feedback type="invalid">
             Please provide the bedrooms.
+          </Form.Control.Feedback>
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} className="mb-3" controlId="price">
+          <Form.Label column sm={3}>Price</Form.Label>
+          <Col sm={9}>
+          <Form.Control required name="price" onChange={handleChange} type="number" placeholder="Enter Total Price" />
+          <Form.Control.Feedback type="invalid">
+            Please provide the total price.
           </Form.Control.Feedback>
           </Col>
         </Form.Group>

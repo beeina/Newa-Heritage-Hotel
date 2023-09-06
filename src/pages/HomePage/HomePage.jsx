@@ -15,7 +15,7 @@ export default function HomePage ()  {
                 </Col>
                 <Col xs={6} md={6}>
                     <p className='white-text-color mt-3'>
-                    Newa Heritage is a Newari heritage hotel in the midst of the heritage area of Kathmandu. Where you will  experience the best quality services and Newari culture. 
+                    Newa Heritage is a Newari heritage hotel in the midst of the heritage area of Kathmandu, where you will  experience the best quality services and Newari culture. 
                     Cultural traditions of Kathmandu can be seen in the hotel through an array of handmade traditional statues, wood carvings on the foundation of traditional style. 
                     This is the perfect holiday destination to feel the warmth and long lasting happiness with the great hospitality services.
                     </p>

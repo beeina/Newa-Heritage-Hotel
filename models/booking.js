@@ -12,6 +12,7 @@ const bookingSchema = new Schema(
     bed: Number,
     fromDate: { type: Date, default: Date.now },
     toDate: { type: Date, default: Date.now },
+    totalCost: { type: Number },
   },
   {
     timestamps: true,

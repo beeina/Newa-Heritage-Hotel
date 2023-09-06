@@ -33,3 +33,5 @@ A hotel booking website allows people to book a room through this single hotel b
 - If rooms are available then display on Calendar
 
 - Add a link in an email to cancel booking
+
+- Room type and it's detail

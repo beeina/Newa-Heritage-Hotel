@@ -70,6 +70,10 @@ export default function BookingListCard({ booking }) {
             <Col xs={12} md={6}><strong>{booking.toDate}</strong></Col>
           </Row>
           <Row>
+            <Col xs={12} md={6}>Total Cost:</Col>
+            <Col xs={12} md={6}><strong>${booking.totalCost}</strong></Col>
+          </Row>
+          <Row>
             <a href="/" onClick={handleSubmit} >Cancel</a>
           </Row>
       </Col>

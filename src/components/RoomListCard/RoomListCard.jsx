@@ -27,6 +27,10 @@ export default function RoomListOrder({ room }) {
             <Col xs={12} md={6}>Bedroom:</Col>
             <Col xs={12} md={6}><strong>{room.bed}</strong></Col>
           </Row>
+          <Row>
+            <Col xs={12} md={6}>Price:</Col>
+            <Col xs={12} md={6}><strong>${room.price}</strong></Col>
+          </Row>
          </Col>
      </Row>
      </Container>

@@ -6,7 +6,7 @@ import { Col } from 'react-bootstrap';
 export default function BookingHistoryPage({ user }) {
   const [bookings, setBookings] = useState([]);
 
-  const adminEmails = ['beeina@hotmail.com', 'bina02@gmail.com'];
+  const adminEmails = ['bina02@gmail.com'];
   let isAdmin = false;
   if (adminEmails.indexOf(user.email) >= 0) {
       isAdmin = true;

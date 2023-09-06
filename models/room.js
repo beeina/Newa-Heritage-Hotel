@@ -3,11 +3,12 @@ const Schema = mongoose.Schema;
 
 const roomSchema = new Schema(
   {
-    name: { type: String, index: true, required: true },
+    name: { type: String, required: true },
     floor: { type: String, require: true },
     capacity: Number,
     roomNumber: Number,
     bed: Number,
+    price: Number,
   },
   {
     timestamps: true,

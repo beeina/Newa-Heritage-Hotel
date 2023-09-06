@@ -21,12 +21,24 @@ export default function NewBookingPage() {
     bed: '',
     fromDate: '',
     toDate: '',
-    selectedToDate: ''
+    selectedToDate: '',
+    totalCost: 0,
+    bookingDays: 0
   });
 
   const [error, setError] = useState('');
 
+  function totalDays() {
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const firstDate = new Date(state.fromDate);
+    const secondDate = new Date(state.toDate);
+
+    const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+    state.bookingDays = diffDays;
+  }
+
   async function handleSubmit(evt) {
+   
     const form = evt.currentTarget;
     if (form.checkValidity() === false) {
       evt.preventDefault();
@@ -41,8 +53,11 @@ export default function NewBookingPage() {
       // The promise returned by the signUp service
       // method will resolve to the user object included
       // in the payload of the JSON Web Token (JWT)
+      totalDays();
       const rooms = await roomAPI.getRoomsByBed(state.bed)
       if (rooms.length > 0) {
+        const cost = rooms[0].price;
+        state.totalCost = cost * state.bookingDays;
         const booking = await bookingAPI.addBooking(state);
         // navigate('/booking/confirmation',{state:{id:booking._id}});
         navigate({
@@ -165,6 +180,7 @@ export default function NewBookingPage() {
           </Form.Control.Feedback>
           </Col>
         </Form.Group>
+
     
        <Form.Group as={Row} className="mb-3">
         <Col sm={{ span: 8, offset: 2 }}>
